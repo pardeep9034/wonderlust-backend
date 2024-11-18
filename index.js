@@ -14,7 +14,7 @@ const {cloudinary,storage}=require('./cloudnary_config');
 const upload=multer({storage});
 
 app.use(cors({
-    origin: ['http://localhost:5173','https://wonderlust-react.vercel.app/'], // Allow only your frontend origin
+    origin: ['http://localhost:5173','https://wonderlust-react.vercel.app'], // Allow only your frontend origin
     credentials: true, // Allow credentials such as cookies
 }));
 app.use(express.json());
@@ -50,7 +50,7 @@ const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
 res.cookie('token', token, {
     httpOnly: true,
     secure: true, // Set to true if using HTTPS
-    sameSite: 'Lax', // Use 'None' if you plan to deploy on HTTPS
+    sameSite: 'none', // Use 'None' if you plan to deploy on HTTPS
 });
 
 res.json({ success: true, message: 'User created successfully' });
