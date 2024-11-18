@@ -49,7 +49,7 @@ await newUser.save();
 const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
 res.cookie('token', token, {
     httpOnly: true,
-    secure: false, // Set to true if using HTTPS
+    secure: true, // Set to true if using HTTPS
     sameSite: 'Lax', // Use 'None' if you plan to deploy on HTTPS
 });
 
