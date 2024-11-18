@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cookieParser());
 //connect to mongodb
 const main=async()=>{
-   const mongo=await mongoose.connect(process.env.MONGO_URl);
+   const mongo=await mongoose.connect(process.env.MONGO_URL);
     console.log('Connected to MongoDB');
 }
 main();
